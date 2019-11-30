@@ -5,7 +5,7 @@ describe('Parse attributes', () => {
 
     // tslint:disable-next-line:mocha-avoid-only
     it.only('generate PlantUML for classes with attributes', () => {
-        expect(tplant.convertToPlant(tplant.generateDocumentation(['test/Attributes/testClass.ts'])))
+        expect(tplant.convertToPlant(tplant.generateDocumentation(['test/Attributes/TestClass.ts'])))
             .toEqual(
                 ['@startuml',
                     'class TestClass {',
