@@ -5,6 +5,7 @@ import { ComponentFactory } from './ComponentFactory';
 export namespace PropertyFactory {
     export function create(signature: ts.Symbol, namedDeclaration: ts.NamedDeclaration, checker: ts.TypeChecker): Property {
         const result: Property = new Property(signature.getName());
+        result.decorators = ComponentFactory.getDecorators(namedDeclaration);
         result.modifier = ComponentFactory.getMemberModifier(namedDeclaration);
         result.isAbstract = ComponentFactory.isAbstract(namedDeclaration);
         result.isOptional = ComponentFactory.isOptional(<ts.PropertyDeclaration>namedDeclaration);
