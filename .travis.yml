@@ -10,7 +10,7 @@ before_script:
   - npm run build
   - TPLANT_VERSION="$(node dist/index.js -V)"
   - echo "TPLANT_VERSION=$TPLANT_VERSION"
-  - NPM_PACKAGE_VERSION="$(npm view @jeff-tian/tplant version)"
+  - NPM_PACKAGE_VERSION="$(npm view @jeff-tian/tplant version)" || NPM_PACKAGE_VERSION=0
   - echo "NPM_PACKAGE_VERSION=$NPM_PACKAGE_VERSION"
   - echo "TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST"
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
