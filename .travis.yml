@@ -25,11 +25,12 @@ before_script:
       travis_terminate 1;
     fi
   - npm run lint
+  - echo $GITHUB_TOKEN
+  - echo $NPM_API_KEY
 
 jobs:
   include:
     - stage: "Github Deployment"
-#      if: branch = fork AND type = push
       node_js: "lts/*"
       install: skip
       before_script: skip
