@@ -40,20 +40,17 @@ jobs:
       api_key: "$GITHUB_TOKEN"
       on:
         branch: fork
-
-  - stage: npm release
-    node_js: : lts/*
-    install: skip
+  - stage: npm Deployment
+    if: tag IS present
+    node_js: lts/*
     before_script: skip
     script: skip
-    before_deploy:
-    - echo 'deploying to npm...'
     deploy:
       provider: npm
-      email: jeff-tian@outlook.com
+      email: jeff.tian@outlook.com
       api_key:
         secure: OIzBziwi52g9WVgmALndOJxILH0ZvGfNyktPPlFEPuy5t9rKb3sUIt/cBYdS2zq/LRIu/e+XV1inPggutO7sX1Gn/fBa7tKun7G56w9VzO2n5lq4dttdA6ZIK2bcBHrKWKmR3B6xTUwixc9xm0GWM50iEoyn7MBy2KJUIDS5UL65165zu4/K6xAMLgZgbPoQuEqFzMGpVhdZzInEoq39pDuNdcwPp9/CzZpk8AbrjA9sGJYs26tlnf7PGZPuli77yiKiqeKyD2qgwTMP1iBg+HXbpm+0h9HJ+NUcx4d+vE/5GkfM+Mpmkmsi5aHXdX4bmhHdm3Z+HQUFxwEAi2oIOkNbVw9UwBuHgGrYDvSU1Ocpg06Fd8iCekoZj8N5y9uv+vpbIgZmE42MMyPsKp/KqpTVBTGO1fSgX7yrjo8pMgUdtClEa6pYwVdq7DKa7aSk5xLRue/RAIkIQTURLIUwLMMhr7d+Czc1X7/myhCZ+gXUB5y+RKRcu9cIukm+c9+nrjP70InZTXNKfyo+3zLoiXF9yVA4t5ak3VsmA8lqgXZRJVddn9rknFda1k+gsAyFiMZnZ9ct/WzKV17Q3mjD6jEnHQPHY4FNmXmr9cqqFifV+kZrGE13eE9BG/EBWVs03sRcTIyEuVyO7m+nOgC3e3jwgEBO5auMXSmyblTjNIs=
+      skip_cleanup: true
       on:
         tags: true
-        repo: Jeff-Tian/tplant
         branch: fork
