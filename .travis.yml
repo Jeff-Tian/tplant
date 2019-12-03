@@ -56,9 +56,7 @@ jobs:
       deploy:
         provider: npm
         email: "jeff.tian@outlook.com"
-        api_key: $NPM_API_KEY
-        token: $NPM_API_KEY
-        api_token: $NPM_API_KEY
+        api_key: '$NPM_API_KEY'
         skip_cleanup: true
         on:
           tags: true
