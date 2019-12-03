@@ -1,9 +1,7 @@
 language: node_js
-
 node_js:
-  - "node"
-  - "lts/*"
-
+  - node
+  - lts/*
 before_script:
   - REPO_VERSION="$(npx -c 'echo "$npm_package_version"')"
   - echo "REPO_VERSION=$REPO_VERSION"
@@ -25,11 +23,10 @@ before_script:
       travis_terminate 1;
     fi
   - npm run lint
-
 jobs:
   include:
-    - stage: "Github Deployment"
-      node_js: "lts/*"
+    - stage: Github Deployment
+      node_js: lts/*
       install: skip
       before_script: skip
       script: skip
@@ -38,25 +35,20 @@ jobs:
         - echo "REPO_VERSION=$REPO_VERSION"
         - git tag -f "$REPO_VERSION"
         - echo "New Tag $(git describe --tags)";
-
       deploy:
         provider: releases
-        api_key: $GITHUB_TOKEN
+        api_key: "$GITHUB_TOKEN"
         on:
           branch: fork
-
-    - stage: "npm Deployment"
+    - stage: npm Deployment
       if: tag IS present
-      node_js: "lts/*"
+      node_js: lts/*
       before_script: skip
       script: skip
-      before_deploy:
-        - echo $GITHUB_TOKEN
-        - echo $NPM_API_KEY
       deploy:
         provider: npm
-        email: "jeff.tian@outlook.com"
-        api_key: '$NPM_API_KEY'
+        email: jeff.tian@outlook.com
+        api_key: I1b4Nas/hQs5yLR9TCLOYTl/QZXu15k0BFbiDyWPUl/I36owsvD2jmGi6WzoGcNtD2hEDtb9WSHuLR7ghpiIDeXjmAMELT4vCzNjLHS8dcjWeN10WMYTGPO4bAqMrymcYPOReI747hWQnZkBjq8oJ0w04c/NE3BHjEOrr3JVc9sMK3bXxpiNv/mpSCOUju3R/TUzIGptF0db8OmXJ8iF097Zm0J7DfRHNH1ncgR1waiOTZtcqeYpjBvuHIr2r+UT3VFQaFfLUxNcEUsM9D2nzUt9jp0pBiYFreysLdVkLOXTSWw1ba09uXdDmHxvtFGFFbRjYgZhijQd9IJiQjrBCIA17ElYVJ2RaY53kls/CtJIqy8kevPje6EbXUlh0mOjHHf2FsuwWXGXj1Yi20tphy5sOD5bf1zlMWm+rxvgZ5Uwlz6zjt9ZPehG2WvgYLpCxkgoSXrNM1IuXGMQU144cGbknMILv864Z7iNDUVrxrpyICFIcy2mOoTx82v4D6bs2Yg0YeAqE3K4vJUQcx8EWU7P3amKRHyNdp2CJU7nLuuC6xVy+pGavymta3XjxgNSJv6Kya42B0eqAcovlrMOqBnwifdDEtFz8qw5cphRrNmotGVUvbcNezH8GN7tBwKCXHYO/Q3rnpEgCc1Evf1Wa2LhWVb9hOxnSvslfz3Ri8o=
         skip_cleanup: true
         on:
           tags: true
