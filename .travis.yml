@@ -40,16 +40,13 @@ jobs:
       api_key: "$GITHUB_TOKEN"
       on:
         branch: fork
-  - stage: npm Deployment
-    if: tag IS present
-    node_js: lts/*
-    before_script: skip
-    script: skip
-    deploy:
-      provider: npm
-      email: jeff.tian@outlook.com
-      api_key: lqkVeAG0eLaZihcXT/HpzPPUNSWF2nqrjyYo2ux/Djgqad3kHD2dABJWZCDzB0EuxeHZb5PYXyVVdCk3mudY2CR9YvNB881UqbTGsL+BAgAKhZu81vxE037AJL0GBAWx6YXNP0WlNl79n9Ol9Y83oNoNgmFKZeSoO+RdPQpvxoAOhrInEh4XO8X0ROaubegEf3nMr/5zItEo6uPLPITEMH4dZgBSc0ep/zbldJeKL5LnwaLGTOUQjVWWUs83lqQS+rdK0L7U70SUt4Cuqt+EFtbtz4XGHccHOswgShlWWMDRzAlLkKWlZtN8vCBoOgsEKN3dVhxlhWyvHCYviN8Ve8AqWdvhLjdLo85DNVhWLel3Jzw3fi4rYhlXmQA7fzF/WDqAjMnUJy7Nl9maSWUAmvZAgyz9Q/+yr3aitz4AsO73kx/jP3es6b0nEtuN7DT/t1Ib/e0VpzCw+EKIHvsog14KvjjG/c8WzQvb1pBga73WUc1bz4WpGCMJ6TYt7OpCnvVuj7ew1D1QCfcpcDC0opJrjt8BRrNdqjSFFwdhx1f5Bq4Xx3xfXK3PC4Oo31Q1tB55M1spBlV3hJMq/b1NNKSEX5J3ntx3Ga1ABhErDDXA4H4c7efN7rnUptDDFO4qq12Cg9rG5ovBHvsQ+I8xfNTvzzTzYi/L1a57HhVZy5Q=
-      skip_cleanup: true
-      on:
-        tags: true
-        branch: fork
+
+deploy:
+  provider: npm
+  email: jeff-tian@outlook.com
+  api_key:
+    secure: OIzBziwi52g9WVgmALndOJxILH0ZvGfNyktPPlFEPuy5t9rKb3sUIt/cBYdS2zq/LRIu/e+XV1inPggutO7sX1Gn/fBa7tKun7G56w9VzO2n5lq4dttdA6ZIK2bcBHrKWKmR3B6xTUwixc9xm0GWM50iEoyn7MBy2KJUIDS5UL65165zu4/K6xAMLgZgbPoQuEqFzMGpVhdZzInEoq39pDuNdcwPp9/CzZpk8AbrjA9sGJYs26tlnf7PGZPuli77yiKiqeKyD2qgwTMP1iBg+HXbpm+0h9HJ+NUcx4d+vE/5GkfM+Mpmkmsi5aHXdX4bmhHdm3Z+HQUFxwEAi2oIOkNbVw9UwBuHgGrYDvSU1Ocpg06Fd8iCekoZj8N5y9uv+vpbIgZmE42MMyPsKp/KqpTVBTGO1fSgX7yrjo8pMgUdtClEa6pYwVdq7DKa7aSk5xLRue/RAIkIQTURLIUwLMMhr7d+Czc1X7/myhCZ+gXUB5y+RKRcu9cIukm+c9+nrjP70InZTXNKfyo+3zLoiXF9yVA4t5ak3VsmA8lqgXZRJVddn9rknFda1k+gsAyFiMZnZ9ct/WzKV17Q3mjD6jEnHQPHY4FNmXmr9cqqFifV+kZrGE13eE9BG/EBWVs03sRcTIyEuVyO7m+nOgC3e3jwgEBO5auMXSmyblTjNIs=
+  on:
+    tags: true
+    repo: Jeff-Tian/tplant
+    branch: fork
