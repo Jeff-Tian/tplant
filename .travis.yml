@@ -43,8 +43,9 @@ jobs:
   - stage: npm Deployment
     if: tag IS present
     node_js: lts/*
-    before_script: skip
-    script: skip
+    before_deploy:
+      - ls
+      - echo "$NPM_TOKEN"
     deploy:
       provider: npm
       email: jeff.tian@outlook.com
