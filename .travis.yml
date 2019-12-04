@@ -54,3 +54,12 @@ jobs:
       on:
         tags: true
         branch: fork
+deploy:
+  provider: npm
+  email: jeff.tian@outlook.com
+  api_key:
+    secure: ix1YuBw9yjRCqOLMyUbLO/k+N0EWUGD6rhsNn9wgxVag1LyQ9og3r0feZh9lQc1VvQz2VLonwBEthPH7MJiuLMnkzHosRySPpL1XIWjE0oZRtWpjfk6ejzKznUgNelZU9jKJ9InHqnYID0xYnYo6iAPPJyp8OZm+K0k7Ky3K7ZfeN+PxG8F8lb6/+nmQHK9t5pMqXKt4tNkpoFCUdHIQUVxeDzrXfdZEBiLRQstbpvcI1w/uLIl1eXX1rFEcolGiUaKCnc1CJrhzMAnjhWH6XP7eCwM8astHlrwoEVXmvUjI39pvcDRFBDHqIcaq5O+7oQce5S+zXzcaXwKrdKkNWsMIzJslp5ROfYr6fbRaCKKfvGpeoYQ6ypIKEmCGrrj7d5ydN2k8KL9mZsd7Vyl0hu2lxZiXbiQkghgu1D8Tjddw3vLjQ+BrWtBbCGFqtXtwei1GTUSdNzPKLodpxJ1AqJ8xtNoVlyORU51yqDXVp7lt7lW++ytJlYokkITRWUgJ0+AhBuTfxbjpmv4pIDMenZ7O1NkGF5aniJ38LeMd3X8teq+BD9yWiUlNs/gi6J64sIsXq8vzaLt4fplj468euNiP8yZPmEh4Vl/eKggZ9ELY/ujYBqglwkZKgRkoSOz0G+JiLN9ji38qG8+wynaYUnm6qJdFNPwGyf4Jmrr6wjc=
+  on:
+    tags: true
+    repo: Jeff-Tian/tplant
+    branch: fork
