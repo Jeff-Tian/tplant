@@ -48,18 +48,8 @@ jobs:
     deploy:
       provider: npm
       email: jeff.tian@outlook.com
-      api_key:
-        secure: NIFuy2bGLkJGi7heM+gLZzEcabgX+cdfiwBrZov0X8BlBkKcr4L2zl1ob3EeUJYrWJBYPYh84XZQY6imBDqeo1aFsat9Ob/iUDtlthSXw8S02lZyFWG66wtWQ6n3MGu+/UquLCe1rwOfdfJwkmVudaiorriNLz0D9gl6aldqSuSuwE97B4oaArHsRhYwGL+9tdc5AoL/aOMgQG0+pHLPMPEcd1dgu5ReJyE3XB02VJYeZAB7yGv+J3fLcNjmg/eLpVcoReIMTSFiXSsLZJrB3Q6K043Fy6j8xr+xhpx/pRvgIExxFSJixGClY1dBtnqOnYFjASHgTtcpfvWzSsb8s5FkxDIde6v/BdpBv8i+IXIKX28vuhT/ktnzgb69Z9MmPNloeKWwEekeNHPuNaFeAm6UpSmhPytly6Zg44tHryJSKe7uUP53xI8xu/kPvCFBTHglz2bo2oNMM20b89wxZbnO5SvBcFmMOc9QT2nkvSlWF6Z4wDSrXoUs0XwpBru2N9cmY+nHqM3tPwXbr2fCypp20YER8X3qz5K7jsvLBm6R7MIcnl5MLMdWApTzVrwb/r0NgGlpPTvWmi8O/lfiAL1Nswpda9Z+6bY+yKC+GKv1nCPdOcRpSC2pbPJWdDfrYyhbp3xu5pF1V4zgamXQcv0JuakiFHCIZzPqvdJ+2w4=
+      api_key: "$NPM_TOKEN"
       skip_cleanup: true
       on:
         tags: true
         branch: fork
-deploy:
-  provider: npm
-  email: jeff.tian@outlook.com
-  api_key:
-    secure: ncHK+cyEJRR80Z0Rt4Xs+DlsutqJ+PmlNYJdbPkX/jXyM3kLPw33OTxQZ12wbuJfTg7lKEiIJhFs0uVJ9zD0uvOX6w4maMJJ4a9R+N/bmwVsVs9oeUgF4uwXS8tjuVdCXe84hFk3g9GLXI5xAlbHHGdgYES22T0/SEZsrFnZEsoQloHddmS6R3AG6tieQGz/zUopkA148NBQShLLPfUmEONfAcQMJGEfwPY5CxMehikLajPC2TnnKAFBvF7OBz2Wx5uNJKNN8UkKk9GoVo1cgYojYlwvHDZnXVbH7+vGR1DunGfWA+7rdN+9o7x0aQsKhMYtnwBlXn3cVZJIPAgrd3HZLCnGtW1EM5MHm/xj3HLiH9nCzTeZyLZKtLdv4nSV/nu066HEY3zg39xp9NEWUFzLsR7EtN7f4tCgRRES0TYFQYmYUJzkvA6QqEE3imPyH3OfvklOQ7SM2J7XpkuvS08wQDn21Bob3Muek/E9nYx5Ly4aoQ02zYVAXggdjp19s0t5A2+V/j5WVTBKqmO30Qwq9MvDGckAEJlaFhUYxQx7zHxzsQ4IM/uX3YuoMsQaoD7q4b5Pzgver2vTUIT0qQrKFao6H4vHY/4rOu1kwrAIchCowpdhoiDCpvRcIiEnhjqNFcZDwGDFjjOZwJ44SDzh+lZKpmnhyTeka07tB+A=
-  on:
-    tags: true
-    repo: Jeff-Tian/tplant
-    branch: fork
