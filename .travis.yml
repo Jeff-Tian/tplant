@@ -1,4 +1,5 @@
 language: node_js
+version: 1.0
 node_js:
 - node
 - lts/*
@@ -47,6 +48,7 @@ jobs:
       - ls
       - echo "$NPM_TOKEN"
     deploy:
+      edge: true
       provider: npm
       email: jeff.tian@outlook.com
       api_key: "$NPM_TOKEN"
