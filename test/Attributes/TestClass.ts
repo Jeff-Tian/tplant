@@ -6,6 +6,9 @@
 class TestClass {
     @column({comment: 'test'})
     public testField: string = '';
+
+    @column({comment: '中文'})
+    public testField2: string = '';
 }
 
 function column({comment}: { comment: string }): Function {

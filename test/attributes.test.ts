@@ -10,6 +10,7 @@ describe('Parse attributes', () => {
                 ['@startuml',
                     'class TestClass {',
                     '    +testField: string (test)',
+                    '    +testField2: string (中文)',
                     '}',
                     '@enduml'].join(os.EOL)
             );
