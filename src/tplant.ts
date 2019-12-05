@@ -1,16 +1,16 @@
 import * as os from 'os';
 import ts from 'typescript';
-import { Class } from './Components/Class';
-import { File } from './Components/File';
-import { Interface } from './Components/Interface';
-import { Method } from './Components/Method';
-import { Parameter } from './Components/Parameter';
-import { Property } from './Components/Property';
-import { ComponentKind } from './Models/ComponentKind';
-import { IComponentComposite } from './Models/IComponentComposite';
+import {Class} from './Components/Class';
+import {File} from './Components/File';
+import {Interface} from './Components/Interface';
+import {Method} from './Components/Method';
+import {Parameter} from './Components/Parameter';
+import {Property} from './Components/Property';
+import {ComponentKind} from './Models/ComponentKind';
+import {IComponentComposite} from './Models/IComponentComposite';
 
-import { FileFactory } from './Factories/FileFactory';
-import { ICommandOptions } from './Models/ICommandOptions';
+import {FileFactory} from './Factories/FileFactory';
+import {ICommandOptions} from './Models/ICommandOptions';
 
 const COMPOSITION_LINE: string = '*--';
 const REGEX_ONLY_TYPE_NAMES: RegExp = /\w+/g;

@@ -24,7 +24,6 @@ export namespace ComponentFactory {
         const componentComposites: IComponentComposite[] = [];
 
         ts.forEachChild(node, (childNode: ts.Node) => {
-
             // Only consider exported nodes
             if (!isNodeExported(childNode)) {
                 return;
@@ -116,6 +115,10 @@ export namespace ComponentFactory {
 
     function isTypeParameter(declaration: ts.NamedDeclaration): boolean {
         return declaration.kind === ts.SyntaxKind.TypeParameter;
+    }
+
+    export function getDecorators(memberDeclaration: ts.Declaration): string[] {
+        return memberDeclaration.decorators !== undefined ? memberDeclaration.decorators.map((d: ts.Decorator) => d.getText()) : [];
     }
 
     export function getMemberModifier(memberDeclaration: ts.Declaration): Modifier {
