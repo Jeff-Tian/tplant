@@ -5,17 +5,16 @@
 import commander from 'commander';
 import fs from 'fs';
 import G from 'glob';
-import http from 'http';
 import os from 'os';
 import path from 'path';
-import { encode } from 'plantuml-encoder';
 import ts from 'typescript';
+import {Converter} from './Helpers/Converter';
 import { tplant } from './tplant';
 
 const AVAILABLE_PLANTUML_EXTENSIONS: string[] = ['svg', 'png', 'txt'];
 
 commander
-    .version('2.4.1')
+    .version('2.4.2')
     .option('-i, --input <path>', 'Define the path of the Typescript file')
     .option('-o, --output <path>', 'Define the path of the output file. If not defined, it\'ll output on the STDOUT')
     .option(
@@ -58,7 +57,7 @@ G(<string>commander.input, {}, (err: Error | null, matches: string[]): void => {
         .replace(/^\./gm, '');
 
     if (AVAILABLE_PLANTUML_EXTENSIONS.includes(extension)) {
-        requestImageFile(<string>commander.output, plantUMLDocument, extension);
+        Converter.convert(<string>commander.output, plantUMLDocument, extension);
 
         return;
     }
@@ -131,19 +130,4 @@ function getCompilerOptions(tsConfigFilePath?: string): ts.CompilerOptions {
     }
 
     return convertedCompilerOptions.options;
-}
-
-function requestImageFile(output: string, input: string, extension: string): void {
-    http.get({
-        host: 'www.plantuml.com',
-        path: `/plantuml/${extension}/${encode(input)}`
-    },       (res: http.IncomingMessage): void => {
-        // tslint:disable-next-line non-literal-fs-path
-        const fileStream: fs.WriteStream = fs.createWriteStream(output);
-        res.setEncoding('binary');
-        res.pipe(fileStream);
-        res.on('error', (err: Error): void => {
-            throw err;
-        });
-    });
 }
