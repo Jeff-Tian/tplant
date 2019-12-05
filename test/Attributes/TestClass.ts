@@ -4,16 +4,16 @@
  * A class to test if @attributes works
  */
 class TestClass {
-    @column({comments: 'test'})
+    @column({comment: 'test'})
     public testField: string = '';
 }
 
-function column({comments}: { comments: string }): Function {
+function column({comment}: { comment: string }): Function {
     // tslint:disable-next-line:no-console
     console.log('Column(): evaluated');
 
     return (target: TestClass, propertyKey: string, descriptor: PropertyDescriptor): void => {
         // tslint:disable-next-line:no-console
-        console.log('Column(): called', target, propertyKey, descriptor, comments);
+        console.log('Column(): called', target, propertyKey, descriptor, comment);
     };
 }

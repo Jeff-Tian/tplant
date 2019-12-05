@@ -26,7 +26,7 @@ export class Property implements IComponentComposite {
         result += (this.isStatic ? '{static} ' : '');
         result += `${this.name}${(this.isOptional ? '?' : '')}: ${this.returnType}`;
         result += this.decorators.length > 0 ? ` (${this.decorators
-            .map((d: string) => Extractor.extract(d, 'comments'))
+            .map((d: string) => Extractor.extract(d, 'comment'))
             .join('; ')})` : '';
 
         return result;
