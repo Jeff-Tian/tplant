@@ -25,10 +25,18 @@ export class Property implements IComponentComposite {
         result += (this.isAbstract ? '{abstract} ' : '');
         result += (this.isStatic ? '{static} ' : '');
         result += `${this.name}${(this.isOptional ? '?' : '')}: ${this.returnType}`;
-        result += this.decorators.length > 0 ? ` (${this.decorators
-            .map((d: string) => Extractor.extract(d, 'comment'))
-            .filter((d: string) => d.trim() !== '')
-            .join('; ')})` : '';
+
+        let comment: string = '';
+        if (this.decorators.length > 0) {
+            comment = `${this.decorators
+                .map((d: string) => Extractor.extract(d, 'comment'))
+                .filter((d: string) => d.trim() !== '')
+                .join('; ')}`;
+        }
+
+        if (comment !== '') {
+            result += ` (${comment})`;
+        }
 
         return result;
     }
