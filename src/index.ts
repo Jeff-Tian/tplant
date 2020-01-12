@@ -8,13 +8,15 @@ import G from 'glob';
 import os from 'os';
 import path from 'path';
 import ts from 'typescript';
-import {Converter} from './Helpers/Converter';
+import { Converter } from './Helpers/Converter';
 import { tplant } from './tplant';
+
+import packageJson from '../package.json';
 
 const AVAILABLE_PLANTUML_EXTENSIONS: string[] = ['svg', 'png', 'txt'];
 
 commander
-    .version('2.4.2')
+    .version(packageJson.version)
     .option('-i, --input <path>', 'Define the path of the Typescript file')
     .option('-o, --output <path>', 'Define the path of the output file. If not defined, it\'ll output on the STDOUT')
     .option(
