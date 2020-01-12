@@ -29,10 +29,10 @@
   "files": [
     "dist"
   ],
-  "main": "dist/tplant.js",
-  "types": "dist/tplant.d.ts",
+  "main": "dist/src/tplant.js",
+  "types": "dist/src/tplant.d.ts",
   "bin": {
-    "tplant": "dist/index.js"
+    "tplant": "dist/src/index.js"
   },
   "scripts": {
     "build": "tsc",
