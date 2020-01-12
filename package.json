@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Typescript to PlantUML",
   "keywords": [
     "class diagram",
@@ -27,7 +27,8 @@
     "Marcos V. Rubido <me@marcosvrs.com> (https://marcosvrs.com/)"
   ],
   "files": [
-    "dist"
+    "dist",
+    "dist/src"
   ],
   "main": "dist/src/tplant.js",
   "types": "dist/src/tplant.d.ts",
