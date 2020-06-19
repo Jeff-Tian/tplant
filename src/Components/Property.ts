@@ -26,7 +26,13 @@ export class Property implements IComponentComposite {
         result += (this.isStatic ? '{static} ' : '');
 
         const typeFromDecorators: string = this.aggregateFromDecorators('type');
-        result += `${this.name}${(this.isOptional ? '?' : '')}: ${typeFromDecorators !== '' ? typeFromDecorators :  this.returnType }`;
+        result += `${this.name}${(this.isOptional ? '?' : '')}: ${typeFromDecorators !== '' ? typeFromDecorators : this.returnType}`;
+
+        const length: string = this.aggregateFromDecorators('length');
+
+        if (length !== '') {
+            result += `(${length})`;
+        }
 
         const comment: string = this.aggregateFromDecorators('comment');
 
@@ -38,15 +44,23 @@ export class Property implements IComponentComposite {
     }
 
     private aggregateFromDecorators(field: string): string {
-        let comment: string = '';
+        let value: string = '';
 
         if (this.decorators.length > 0) {
-            comment = `${this.decorators
-                .map((d: string) => Extractor.extract(d, field))
-                .filter((d: string) => d.trim() !== '')
+            value = `${this.decorators
+                // .map((d: string) => {
+                //     // tslint:disable-next-line:no-console
+                //     console.log('d = ', d);
+                //
+                //     return d;
+                // })
+                .map((d: string) => Extractor.extract(d, field) ||
+                    Extractor.extractNumberValue(d, field))
+                .filter((d: string | number | undefined) => String(d)
+                    .trim() !== '')
                 .join('; ')}`;
         }
 
-        return comment;
+        return value;
     }
 }

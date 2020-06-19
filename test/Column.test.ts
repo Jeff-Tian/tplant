@@ -10,7 +10,7 @@ describe('Parse attributes', () => {
                 ['@startuml',
                     'class TestClass2 {',
                     '    +testField: bigint (test)',
-                    '    +testField2: varchar (中文)',
+                    '    +testField2: varchar(255) (中文)',
                     '}',
                     '@enduml'].join(os.EOL)
             );

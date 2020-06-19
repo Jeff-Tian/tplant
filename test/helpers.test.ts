@@ -7,6 +7,10 @@ describe('Extract', () => {
             .toEqual('test');
     });
 
+    it('extracts numbers', () => {
+        expect(Extractor.extractNumberValue('@Column({length: 255})', 'length')).toEqual(255);
+    });
+
     it('converts', () => {
         Converter.convert('test.svg', `@startuml
 Bob -> Alice : hello 你好
