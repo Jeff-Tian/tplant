@@ -56,7 +56,7 @@ export class Property implements IComponentComposite {
                 // })
                 .map((d: string) => Extractor.extract(d, field) ||
                     Extractor.extractNumberValue(d, field))
-                .filter((d: string | number | undefined) => String(d)
+                .filter((d: string | number | undefined) => d !== undefined && String(d)
                     .trim() !== '')
                 .join('; ')}`;
         }
