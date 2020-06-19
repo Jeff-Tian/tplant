@@ -9,8 +9,9 @@ describe('Parse comments', () => {
 
     it('generate PlantUML for fileds that contains comments', (done: DoneCallback) => {
         // tslint:disable-next-line:max-line-length
-        exec('ts-node --project ./tsconfig.json ./src/index.ts -i ./test/Comment/comment.ts --output ./output.puml', () => {
-            const fileContent: string = fs.readFileSync('./output.puml', 'utf-8');
+        exec('ts-node --project ./tsconfig.json ./src/index.ts -i ./test/Comment/comment.ts --output' +
+            ' ./output-comment.puml', () => {
+            const fileContent: string = fs.readFileSync('./output-comment.puml', 'utf-8');
 
             expect(fileContent)
                 .toEqual(
