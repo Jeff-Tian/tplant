@@ -35,6 +35,8 @@ if (!commander.input) {
 }
 
 G(<string>commander.input, {}, (err: Error | null, matches: string[]): void => {
+    console.log('input is ', commander.input);
+
     if (err !== null) {
         throw err;
     }
