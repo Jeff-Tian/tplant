@@ -28,4 +28,15 @@ Bob -> Alice : hello 你好
         expect(relationTo)
             .toEqual('UserAttribute');
     });
+
+    it('extracts relation to exactly', () => {
+        const relationTo: string = Extractor.extractRelationTo(
+            `@OneToMany(
+        type => UserAttribute,
+        userAttr => userAttr.user_id,
+    )`);
+
+        expect(relationTo)
+            .toEqual('UserAttribute');
+    });
 });

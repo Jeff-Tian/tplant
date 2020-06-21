@@ -21,7 +21,7 @@ export class Extractor {
 
     // tslint:disable-next-line:function-name
     public static extractRelationTo(relation: string): string {
-        const match: RegExpMatchArray | null = relation.match(new RegExp(`=>\\s*([\\w\\W\\d]+),`, 'm'));
+        const match: RegExpMatchArray | null = relation.match(new RegExp(`=>\\s*([\\w\\d]+),`, 'm'));
 
         return match !== null ? match[1] : '';
     }
