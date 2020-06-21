@@ -8,8 +8,8 @@ import G from 'glob';
 import os from 'os';
 import path from 'path';
 import ts from 'typescript';
-import { Converter } from './Helpers/Converter';
-import { tplant } from './tplant';
+import {Converter} from './Helpers/Converter';
+import {tplant} from './tplant';
 
 import packageJson from '../package.json';
 
@@ -38,6 +38,8 @@ G(<string>commander.input, {}, (err: Error | null, matches: string[]): void => {
     if (err !== null) {
         throw err;
     }
+
+    process.stdout.write(`input files = ${matches.join('\n')}`);
 
     const tsConfigFile: string | undefined = findTsConfigFile(<string>commander.input, <string | undefined>commander.tsconfig);
 
