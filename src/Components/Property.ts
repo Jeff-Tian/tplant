@@ -1,12 +1,13 @@
 import {Extractor} from '../Helpers/Extractor';
 import {ComponentKind} from '../Models/ComponentKind';
-import {IComponentComposite} from '../Models/IComponentComposite';
+import {Member} from '../Models/IComponentComposite';
 import {Modifier} from '../Models/Modifier';
+import {Relation} from './Relation';
 
 /**
  * Represents the metadata for a property within typescript
  */
-export class Property implements IComponentComposite {
+export class Property implements Member {
     public readonly componentKind: ComponentKind = ComponentKind.PROPERTY;
     public readonly name: string;
     public modifier: Modifier = 'public';
@@ -18,6 +19,12 @@ export class Property implements IComponentComposite {
 
     constructor(name: string) {
         this.name = name;
+    }
+
+    public getRelation(fromObject: string): Relation | undefined {
+        return this.decorators
+            .filter((decorator: string) => decorator.startsWith('@OneToMany'))
+            .map((decorator: string) => new Relation(fromObject, Extractor.extractRelationTo(decorator)))[0];
     }
 
     public toPUML(): string {

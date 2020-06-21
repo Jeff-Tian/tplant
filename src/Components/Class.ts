@@ -1,6 +1,7 @@
 import * as os from 'os';
-import { ComponentKind } from '../Models/ComponentKind';
-import { IComponentComposite } from '../Models/IComponentComposite';
+import {ComponentKind} from '../Models/ComponentKind';
+import {IComponentComposite, Member} from '../Models/IComponentComposite';
+import {Relation} from './Relation';
 
 /**
  * Represents the metadata for a class within a typescript file.
@@ -11,10 +12,11 @@ export class Class implements IComponentComposite {
     public isAbstract: boolean = false;
     public isStatic: boolean = false;
     public constructorMethods: IComponentComposite[] = [];
-    public members: IComponentComposite[] = [];
+    public members: Member[] = [];
     public extendsClass: string | undefined;
     public implementsInterfaces: string[] = [];
     public typeParameters: IComponentComposite[] = [];
+    public relations: Relation[] = [];
 
     constructor(name: string) {
         this.name = name;
@@ -44,12 +46,21 @@ export class Class implements IComponentComposite {
             firstLine.push(' {');
         }
         result.push(firstLine.join(''));
-        this.members.forEach((member: IComponentComposite): void => {
+        this.members.forEach((member: Member): void => {
             result.push(`    ${member.toPUML()}`);
+
+            const relation: Relation | undefined = member.getRelation(this.name);
+            if (relation) {
+                this.relations.push(relation);
+            }
         });
         if (this.members.length > 0) {
             result.push('}');
         }
+
+        this.relations.forEach((r: Relation) => {
+            result.push(r.toPUML());
+        });
 
         return result.join(os.EOL);
     }

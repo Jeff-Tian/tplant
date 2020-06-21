@@ -1,11 +1,12 @@
-import { ComponentKind } from '../Models/ComponentKind';
-import { IComponentComposite } from '../Models/IComponentComposite';
-import { Modifier } from '../Models/Modifier';
+import {ComponentKind} from '../Models/ComponentKind';
+import {IComponentComposite, Member} from '../Models/IComponentComposite';
+import {Modifier} from '../Models/Modifier';
+import {Relation} from './Relation';
 
 /**
  * Represents the metadata for a method within typescript
  */
-export class Method implements IComponentComposite {
+export class Method implements Member {
     public readonly componentKind: ComponentKind = ComponentKind.METHOD;
     public readonly name: string;
     public parameters: IComponentComposite[] = [];
@@ -20,7 +21,7 @@ export class Method implements IComponentComposite {
     }
 
     public toPUML(): string {
-        let result: string = { public: '+', private: '-', protected: '#' }[this.modifier];
+        let result: string = {public: '+', private: '-', protected: '#'}[this.modifier];
         result += (this.isAbstract ? '{abstract} ' : '');
         result += (this.isStatic ? '{static} ' : '');
         result += `${this.name}(`;
@@ -30,5 +31,9 @@ export class Method implements IComponentComposite {
         result += `): ${this.returnType}`;
 
         return result;
+    }
+
+    public getRelation(): Relation | undefined {
+        return undefined;
     }
 }
