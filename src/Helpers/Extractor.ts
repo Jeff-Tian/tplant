@@ -18,4 +18,11 @@ export class Extractor {
 
         return match !== null ? Number(match[1]) : undefined;
     }
+
+    // tslint:disable-next-line:function-name
+    public static extractRelationTo(relation: string): string {
+        const match: RegExpMatchArray | null = relation.match(new RegExp(`=>\\s*([\\w\\d]+),`, 'm'));
+
+        return match !== null ? match[1] : '';
+    }
 }

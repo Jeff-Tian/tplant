@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.5.2",
+  "version": "2.6.1",
   "description": "Typescript to PlantUML",
   "keywords": [
     "class diagram",
@@ -13,18 +13,19 @@
     "uml",
     "cli"
   ],
-  "homepage": "https://github.com/bafolts/tplant#readme",
+  "homepage": "https://github.com/jeff-tian/tplant#readme",
   "bugs": {
-    "url": "https://github.com/bafolts/tplant/issues"
+    "url": "https://github.com/jeff-tian/tplant/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bafolts/tplant.git"
+    "url": "git+https://github.com/jeff-tian/tplant.git"
   },
   "license": "ISC",
   "author": "Brian Folts",
   "contributors": [
-    "Marcos V. Rubido <me@marcosvrs.com> (https://marcosvrs.com/)"
+    "Marcos V. Rubido <me@marcosvrs.com> (https://marcosvrs.com/)",
+    "Jeff Tian <jeff.tian@outlook.com> (https://tictactoe.js.org)"
   ],
   "main": "dist/src/tplant.js",
   "types": "dist/src/tplant.d.ts",
