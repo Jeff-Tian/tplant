@@ -2,7 +2,9 @@ import { exec } from 'child_process';
 import * as fs from 'fs';
 import * as os from 'os';
 import DoneCallback = jest.DoneCallback;
-jest.setTimeout(20000);
+
+jest.setTimeout(10000);
+
 describe('Parse codes that contains CJK characters', () => {
 
     it('generate PlantUML for classes that contains CJK characters', (done: DoneCallback) => {
