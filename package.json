@@ -42,7 +42,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@types/glob": "^7.1.2",
+    "@types/glob": "^7.2.0",
     "commander": "^2.20.0",
     "glob": "^7.1.6",
     "plantuml-encoder": "^1.4.0",
